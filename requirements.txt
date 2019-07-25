@@ -1,0 +1,11 @@
+flask
+werkzeug
+numpy
+flask-restplus
+pytest
+pytest-runner
+pytest-cov
+Flask-JWT
+pytest-flask
+Flask-Migrate
+Flask-SQLAlchemy
