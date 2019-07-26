@@ -6,6 +6,8 @@ from jsonschema import FormatChecker
 
 from app.views.v1.cars import ns_cars
 
+#from app.views.v1.cars import authorizations
+
 
 blueprints = Blueprint('api', __name__)
 api = Api(blueprints,
