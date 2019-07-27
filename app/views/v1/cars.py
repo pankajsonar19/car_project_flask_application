@@ -1,3 +1,5 @@
+# this file contains my views and api routings.
+
 import werkzeug
 
 from app.models.models import Car_db, carschema
@@ -12,7 +14,7 @@ from sqlalchemy import or_, and_
 from sqlalchemy.orm import load_only
 from app.common import (logging,token_required)
 
-
+# using namespace to organized all the routing related to car_details into single level
 ns_cars = Namespace('cars',
                     description='namespace for the cars data')
 
@@ -64,18 +66,11 @@ price_model = ns_cars.model('Average_Price', {
     )
 })
 
+# declaring parsers for uploading file, and for taking Bearer token in header.
 parser = reqparse.RequestParser()
 parser.add_argument('car_data', type=werkzeug.datastructures.FileStorage, location='files', required=True)
 parser1 = reqparse.RequestParser()
 parser1.add_argument('Authorization', type = str, location='headers',help='Bearer Firebase Access Token',required=True)
-
-authorizations = {
-    'apikey': {
-        'type': 'apiKey',
-        'in': 'header',
-        'name': 'X-API-KEY'
-    }
-}
 
 
 @ns_cars.route('/read_file')

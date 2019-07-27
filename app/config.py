@@ -1,15 +1,9 @@
 
-import datetime
 import os
 
 
 class Config(object):
 
-
-
-    #jwt
-   # JWT_AUTH_URL_RULE = '/api/login'
-    #JWT_EXPIRATION_DELTA = datetime.timedelta(days=31)
 
     #SQLAlchemy
     SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -17,23 +11,24 @@ class Config(object):
 
 # for development env
 class DevelopmentConfig(Config):
+
     DEBUG = True
 
-    SQLALCHEMY_DATABASE_URI = 'sqlite://///home/ubuntu/sqlite/car.db'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///car.db'
 
 # for testing env
 class TestingConfig(Config):
     DEBUG = True
     TESTING = True
 
-    SQLALCHEMY_DATABASE_URI = 'sqlite://///home/ubuntu/sqlite/car_test.db'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///car_test.db'
 
 # for staging env
 class StagingConfig(Config):
     DEBUG = True
     TESTING = False
 
-    SQLALCHEMY_DATABASE_URI = 'sqlite://///home/ubuntu/sqlite/car_staging.db'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///car_staging.db'
 
 # for production env
 class ProductionConfig(Config):
@@ -41,6 +36,7 @@ class ProductionConfig(Config):
     TESTING = False
 
     # all the information related to production env
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///car.db'
 
 
 # dictionary to decide env

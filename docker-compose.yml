@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  # container1 for car_project flask application. It will contain path to our docker file and other important details
+  flaskapi:
+    # location of my flask application Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Docker image name of my flask application
+    image: car_project_flask
+    # this gives the connection of our flask application container with sqlite container written below
+    depends_on:
+      - sqlite3
+    # this key maps our flask application port 5000 to port 8000
+    ports:
+      - "8000:5000"
+    # setting up environment variable required for our flask application
+    environment:
+      - FLASK_APP = main.py
+
+  # container2 for the sqlite database. It will contain the car.db volume
+  sqlite3:
+    # location of Dockerfile for sqlite
+    build:
+      context: .
+      dockerfile: ./db/Dockerfile
+    # Docker image name for sqlite database
+    image: car_project_sqlite
+    # some required keys to be set True for sqlite to run
+    stdin_open: true
+    tty: true
+    # transfering the car.db in our db folder to /db folder created on docker
+    volumes:
+      - ./db/:/db/
