@@ -81,10 +81,12 @@ A flask application which creates Python Flask-Restplus API, with SQLite db at t
                 
                 $ export FLASK_CONFIG=development
    - Run Docker ( type in Pycharm terminal)
+                
                 $ docker build -t car_project:latest . ( sudo can be use if user not set and be sure you put that . in last)
                 
                 $ docker run -d -p 5000:5000 car_project
    - Docker Compose ( you can also build and run the project through docker-compose command)
+                
                 $ docker-compose up --build ( one command to build and running project)
   
    - Open the Browser and type in browser
