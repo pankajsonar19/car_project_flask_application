@@ -1,4 +1,4 @@
-# car_project_flask_application
+# Car_Project Flask API Application
 A flask application which creates Python Flask-Restplus API, with SQLite db at the backend and contains Dockerfile and Docker-compose.yml for deployment of the application.
 
 #### The basic goals set in this application are -It should be:
