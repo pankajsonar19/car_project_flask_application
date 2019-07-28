@@ -12,7 +12,7 @@ import pandas as pd
 from sqlalchemy.sql import func
 from sqlalchemy import or_, and_
 from sqlalchemy.orm import load_only
-from app.common import (logging,token_required)
+from app.common import (logging)
 
 # using namespace to organized all the routing related to car_details into single level
 ns_cars = Namespace('cars',
