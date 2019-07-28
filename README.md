@@ -158,4 +158,12 @@ A flask application which creates Python Flask-Restplus API, with SQLite db at t
                   ]
                 ]
 
-### Architecture Diagram for this Project
+### Architecture Diagrams for this Project
+
+ ####  - Architecture_Diagram of this project using Docker
+
+![Docker_Architecture_Diagram](architecture_diagram_docker.png)
+
+ ####  - Architecture_Diagram of this project using Docker-Compose
+
+![Docker-Compose_Architecture_Diagram](architecture_diagram_docker-compose.png)
