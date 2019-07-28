@@ -1,3 +1,5 @@
+# this file states the entry point for our application
+
 from app.main import create_app
 
 app = create_app('dev')

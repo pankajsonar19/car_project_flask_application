@@ -1,3 +1,6 @@
+# this file contains some common stuffs that can be used in whole application
+# I am writing the log definitions here
+
 import logging
 
 from pythonjsonlogger import jsonlogger
@@ -21,15 +24,3 @@ formatter = jsonlogger.JsonFormatter(format)
 logHandler.setFormatter(formatter)
 logger.addHandler(logHandler)
 
-def token_required(tk):
-    @wraps(tk)
-    def decorated(*args, **kwargs):
-        token = None
-        if 'X-API-KEY' in request.headers:
-            token = request.headers['X-API-KEY']
-        if not token:
-            return {'message': 'token is missing'}
-
-        return tk(*args, **kwargs)
-
-    return decorated()

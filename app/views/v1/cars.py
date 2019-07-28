@@ -72,7 +72,7 @@ parser.add_argument('car_data', type=werkzeug.datastructures.FileStorage, locati
 parser1 = reqparse.RequestParser()
 parser1.add_argument('Authorization', type = str, location='headers',help='Bearer Firebase Access Token',required=True)
 
-
+# Car APIs routing for reading csv file
 @ns_cars.route('/read_file')
 class Read_file(Resource):
     @ns_cars.expect(parser)
@@ -90,19 +90,19 @@ class Read_file(Resource):
 
             return 'File read successfully', 201
 
-
         except Exception as e:
             db.session.rollback()
             abort(400, e.args[0])
         finally:
             db.session.close()
 
-
+# API routing for retrieving the records from database
 @ns_cars.route('/<int:id>')
 class Car_ID(Resource):
-    @ns_cars.expect(parser1) # only authenticated user can be able to retreive the data from database
+    @ns_cars.expect(parser1) # example to show how only authenticated user can be able to retreive the data from database Bearer token from header
     def get(self, id):
         try:
+            # I am using firebase-admin sdk for reading the Bearer access token from header.
             token = request.headers.get('Authorization').replace("Bearer ", "").strip()
 
             car = Car_db.query.with_entities(Car_db.id, Car_db.make, Car_db.model, Car_db.year, Car_db.last_updated,
@@ -119,7 +119,7 @@ class Car_ID(Resource):
         finally:
             db.session.close()
 
-
+# Api routing to retrieve the average price for a make or model
 @ns_cars.route('/avg_price')
 class Car_Avg_Price(Resource):
     @ns_cars.expect(price_model)
