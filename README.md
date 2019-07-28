@@ -1,13 +1,13 @@
 # Car_Project Flask API Application
 A flask application which creates Python Flask-Restplus API, with SQLite db at the backend and contains Dockerfile and Docker-compose.yml for deployment of the application.
 
-#### The basic goals set in this application are -It should be:
+#### The basic goals set in this application are 
 
-  - Unit/functionally tested
+  - Unit/functionally tested.
   
-  - Stable
+  - Stable.
   
-  - Secure
+  - Secure.
   
   - Maintainable.
   
@@ -21,12 +21,12 @@ A flask application which creates Python Flask-Restplus API, with SQLite db at t
   - Writing an API to load a csv dataset which will be used to insert the records to my Sqlite db. In detailed discussion for this and 
      other APIs available in later part of this readme.
 
-  - Testing with pytest
+  - Testing with pytest.
 
   - Using Firebase for the authentication. This can be later switched to JWT authentication or other basic authentication. Discussed 
      later in details.
 
-  - Using Flask-SQLAlchemy for ORM operations
+  - Using Flask-SQLAlchemy for ORM operations.
 
   - Used Flask-Migrate for the database migration on the go.
 
@@ -59,9 +59,9 @@ A flask application which creates Python Flask-Restplus API, with SQLite db at t
         
    - Install/Download all the above dependencies.
    - Create a database in you local folder and give it's path in the config file in the SQLALCHEMY_DATABASE_URI variable. 
-      (Note: Here in this project I have attached the db (that I created) in the project itself and have given it's path. But this is just
-             for quickly running this project. In actual, the good practice is to keep db on your local machine. So, when you download this
-             project on your local machine then create a new db and give its path in config file to the variable stated above)
+      (Note: Here I have attached the db (that I created) in the project itself and have given it's path. But this is just
+             for quickly running this project. The good practice is to keep db on your local machine. So, when you download this
+             project on your local machine then create a new db and give its path in config file to the variable stated above.)
              
              So first you need to set Env Variable discussed in next point and do the migrations by running below commands in your project folder location:
                 $ flask db migrate
@@ -71,25 +71,25 @@ A flask application which creates Python Flask-Restplus API, with SQLite db at t
             
             Windows:
             
-                $ set FLASK_APP=run.py
+                $ set FLASK_APP=main.py
             
                 $ set FLASK_CONFIG=development
             
             Linux:
                 
-                $ export FLASK_APP=run.py
+                $ export FLASK_APP=main.py
                 
                 $ export FLASK_CONFIG=development
-   - Run Docker ( type in Pycharm terminal)
+   - Run Docker ( type in Pycharm terminal) :
                 
                 $ docker build -t car_project:latest . ( sudo can be use if user not set and be sure you put that . in last)
                 
                 $ docker run -d -p 5000:5000 car_project
-   - Docker Compose ( you can also build and run the project through docker-compose command)
+   - Docker Compose ( you can also build and run the project through docker-compose command) :
                 
                 $ docker-compose up --build ( one command to build and running project)
   
-   - Open the Browser and type in browser
+   - Open the Browser and type in browser.
                 
                 http://localhost:5000/api/v1/ ( if you are running Docker)
                 
@@ -97,8 +97,8 @@ A flask application which creates Python Flask-Restplus API, with SQLite db at t
                 
  #### 2. From Terminal
     
-   - Go to the project folder directory
-   - Run all the commands discussed above (Pycharm)
+   - Go to the project folder directory.
+   - Run all the commands discussed above (Pycharm).
    
 ### Description of API
 
@@ -109,7 +109,7 @@ A flask application which creates Python Flask-Restplus API, with SQLite db at t
    - This api endpoint is used to upload the csv dataset file which gets read and executed in the project to insert the records in 
      the database.
      
-   - Example of Request and it's response for this endpoint:
+   - Example:
                 
                 Request:
                 
@@ -124,7 +124,7 @@ A flask application which creates Python Flask-Restplus API, with SQLite db at t
      for showing the authentication example. 
    - For this project, you can give any string as token, but internally you can make valid changes to validate the token.
      ( I am not validating in this project. For details visit: https://firebase.google.com/docs/auth)
-   - Example of Request and it's response for this endpoint:
+   - Example:
                 
                 Request:        
                 
@@ -146,7 +146,7 @@ A flask application which creates Python Flask-Restplus API, with SQLite db at t
      
    - This api endpoint is used to return a average price of the car by using combination of 'make' and 'model' of a car.
    - If the combination matches then only you will see the average_price. I am returning the response by grouping by "make" of car.
-   - Example of Request and it's response for this endpoint:
+   - Example:
                 
                 Request:
                 
